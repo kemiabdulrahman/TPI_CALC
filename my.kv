@@ -1,0 +1,162 @@
+### Custom Button Definition ###
+<Button@Button>:
+    size_hint: (0.2, 0.2)
+    background_color: (2/255, 10/255, 24/255)
+    background_normal: ''
+
+<MyRoot>:
+    FloatLayout:
+
+        Label:
+            size_hint: (0.2, 0.08)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+            text: "V-CALC"
+            font_size: 18
+            bold: True
+
+        TextInput:
+            id: calc_field
+            size_hint: (0.8, 0.1)
+            multiline: False
+            halign: 'right'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+            font_size: 24
+            input_type: 'number'
+	    
+
+
+
+        Label:
+            size_hint: (0.18, 0.08)
+            pos_hint: {"center_x": 0.22, "center_y": 0.7}
+            text: "TPI 991ES"
+            font_size: 16
+            bold: True
+
+        BoxLayout:
+            orientation: 'vertical'
+            background_color: (81/255, 99/255, 71/255)
+            size_hint: (1, 0.65)
+
+            GridLayout:
+                rows: 5
+                cols: 4
+                padding: 10
+                spacing: 5
+
+                ### Row 1 ###
+
+                Button:
+                    text: "C"
+                    font_size: 26
+                    padding: 5
+                    on_release: root.clear()
+
+                Button:
+                    text: "/"
+                    font_size: 26
+                    on_release: root.signs('/')
+
+                Button:
+                    text: "*"
+                    font_size: 26
+                    on_release: root.signs('*')
+
+                Button:
+                    text: "AC"
+                    font_size: 26
+                    background_color: (174/255, 99/255, 71/255)
+                    on_release: root.clear()
+
+                ### Row 2 ###
+
+                Button:
+                    text: "9"
+                    font_size: 26
+                    on_release: root.button_value(9)
+
+                Button:
+                    text: "8"
+                    font_size: 26
+                    on_release: root.button_value(8)
+
+                Button:
+                    text: "7"
+                    font_size: 26
+                    on_release: root.button_value(7)
+
+                Button:
+                    text: "/"
+                    font_size: 26
+                    background_color: (174/255, 99/255, 71/255)
+                    on_release: root.signs('/')
+
+                ### Row 3 ###
+
+                Button:
+                    text: "6"
+                    font_size: 26
+                    on_release: root.button_value(6)
+
+                Button:
+                    text: "5"
+                    font_size: 26
+                    on_release: root.button_value(5)
+
+                Button:
+                    text: "4"
+                    font_size: 26
+                    on_release: root.button_value(4)
+
+                Button:
+                    text: "-"
+                    font_size: 26
+                    background_color: (174/255, 99/255, 71/255)
+                    on_release: root.signs('-')
+
+                ### Row 4 ###
+
+                Button:
+                    text: "3"
+                    font_size: 26
+                    on_release: root.button_value(3)
+
+                Button:
+                    text: "2"
+                    font_size: 26
+                    on_release: root.button_value(2)
+
+                Button:
+                    text: "1"
+                    font_size: 26
+                    on_release: root.button_value(1)
+
+                Button:
+                    text: "="
+                    font_size: 26
+                    background_color: (174/255, 99/255, 71/255, 1)
+                    on_release: root.display_result()
+
+                ### Row 5 ###
+
+                Button:
+                    text: "+/-"
+                    font_size: 32
+                    on_release: root.positive_negative()
+
+                Button:
+                    text: "0"
+                    font_size: 25
+                    on_release: root.button_value(0)
+
+                Button:
+                    text: "."
+                    font_size: 32
+                    on_release: root.dot()
+
+                Button:
+                    text: "+"
+                    font_size: 25
+                    background_color: (174/255, 99/255, 71/255, 1)
+                    on_release: root.signs('+')
+
